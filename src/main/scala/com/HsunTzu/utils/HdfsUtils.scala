@@ -1,7 +1,8 @@
 package com.HsunTzu.utils
 
 import com.HsunTzu.hdfs.HdfsCodec
-import com.typesafe.scalalogging.Logger
+//import com.typesafe.scalalogging.Logger
+import org.apache.log4j.Logger
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileStatus, FileSystem, Path}
 import org.apache.hadoop.mapreduce.Job
@@ -12,7 +13,8 @@ class HdfsUtils {
 }
 object  HdfsUtils{
 
-  private [this] val logger =Logger(LoggerFactory.getLogger(classOf[HdfsUtils]))
+    val logger: Logger = Logger.getLogger(HdfsUtils.getClass)
+//  private [this] val logger =log(LoggerFactory.getLogger(classOf[HdfsUtils]))
   val HDFSPORTDOTSUFFIX=PropertiesUtils.configFileByKeyGetValueFrom("HDFSPORTDOTSUFFIX")
 
   /**

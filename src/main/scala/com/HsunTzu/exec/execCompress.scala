@@ -3,12 +3,13 @@ package com.HsunTzu.exec
 import com.HsunTzu.core.{HdfsCompress, HdfsConvertCompress, HdfsDeCompress, HdfsUntar}
 import com.HsunTzu.hdfs.HdfsCodec
 import com.HsunTzu.utils.PropertiesUtils
-import com.typesafe.scalalogging.Logger
+//import com.typesafe.scalalogging.Logger
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.FileSystem
 import org.apache.hadoop.io.compress._
-import org.platanios.tensorflow.api.tf
-import org.platanios.tensorflow.jni.{Graph, Session}
+import org.apache.log4j.Logger
+//import org.platanios.tensorflow.api.tf
+//import org.platanios.tensorflow.jni.{Graph, Session}
 import org.slf4j.LoggerFactory
 
 /***
@@ -16,7 +17,8 @@ import org.slf4j.LoggerFactory
   */
 object  execCompress {
 
-  private [this] val logger =Logger(LoggerFactory.getLogger(classOf[execCompress]))
+  val logger: Logger = Logger.getLogger(execCompress.getClass)
+//  private [this] val logger =Logger(LoggerFactory.getLogger(classOf[execCompress]))
 
   def  fillHdfsINNConfig():(String,String,String,String)={
     val FS =PropertiesUtils.configFileByKeyGetValueFrom("hdfsAddr")

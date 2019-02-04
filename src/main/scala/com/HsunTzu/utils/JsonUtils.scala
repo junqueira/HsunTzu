@@ -1,11 +1,12 @@
 package com.HsunTzu.utils
 
-import com.typesafe.scalalogging.Logger
+//import com.typesafe.scalalogging.Logger
 import io.circe.{Json, JsonObject}
 import io.circe._
 import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
+import org.apache.log4j.Logger
 import org.slf4j.LoggerFactory
 
 class JsonUtils {
@@ -14,7 +15,9 @@ class JsonUtils {
 
 object JsonUtils {
 
-  private [this] val jsonLog=Logger(LoggerFactory.getLogger(classOf[JsonUtils]))
+
+  val logger: Logger = Logger.getLogger(JsonUtils.getClass)
+//  private [this] val jsonLog=Logger(LoggerFactory.getLogger(classOf[JsonUtils]))
   /**
     * 判断 json 对象中 是否 有 对应的key
     *

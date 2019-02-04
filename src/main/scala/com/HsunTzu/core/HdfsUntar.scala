@@ -4,9 +4,10 @@ import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
 
 import com.HsunTzu.utils.{CommonUtils, FileUtils, PropertiesUtils}
-import com.typesafe.scalalogging.Logger
+//import com.typesafe.scalalogging.Logger
 import org.apache.hadoop.fs.{FSDataOutputStream, Path, FileSystem => HDFSFileSystem}
 import org.apache.hadoop.io.IOUtils
+import org.apache.log4j.Logger
 import org.apache.tools.tar.{TarEntry, TarInputStream}
 import org.slf4j.LoggerFactory
 
@@ -18,8 +19,8 @@ class HdfsUntar {
 
 object  HdfsUntar{
 
-
-  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[HdfsUntar]))
+  val logger: Logger = Logger.getLogger(HdfsUntar.getClass)
+//  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[HdfsUntar]))
 
   val HDFSPORTDOTSUFFIX=PropertiesUtils.configFileByKeyGetValueFrom("HDFSPORTDOTSUFFIX")
 

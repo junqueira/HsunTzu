@@ -2,11 +2,13 @@ package com.HsunTzu.utils
 
 import java.io.{BufferedInputStream, BufferedOutputStream}
 
-import com.typesafe.scalalogging.Logger
+import com.HsunTzu.hdfs.HdfsCodec
+//import com.typesafe.scalalogging.Logger
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FSDataInputStream, FSDataOutputStream, FileSystem, Path}
 import org.apache.hadoop.io.IOUtils
 import org.apache.hadoop.io.compress._
+import org.apache.log4j.Logger
 import org.slf4j.LoggerFactory
 
 class CodecUtils {
@@ -15,7 +17,8 @@ class CodecUtils {
 object  CodecUtils{
 
 
-  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[CodecUtils]))
+  val logger: Logger = Logger.getLogger(CodecUtils.getClass)
+//  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[CodecUtils]))
   /** *
     * Hdfs 文件  Gzip 压缩
     *

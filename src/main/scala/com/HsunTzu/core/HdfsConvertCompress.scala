@@ -4,12 +4,13 @@ import java.io.{BufferedInputStream, BufferedOutputStream}
 
 import com.HsunTzu.hdfs.HdfsCodec
 import com.HsunTzu.utils.{CommonUtils, HdfsUtils, PropertiesUtils}
-import com.typesafe.scalalogging.Logger
+//import com.typesafe.scalalogging.Logger
 import org.apache.commons.lang.StringUtils
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs._
 import org.apache.hadoop.io.IOUtils
 import org.apache.hadoop.io.compress.{CompressionCodec, CompressionInputStream, CompressionOutputStream}
+import org.apache.log4j.Logger
 import org.slf4j.LoggerFactory
 
 class HdfsConvertCompress {
@@ -18,7 +19,8 @@ class HdfsConvertCompress {
 
 object HdfsConvertCompress{
 
-  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[HdfsConvertCompress]))
+  val logger: Logger = Logger.getLogger(HdfsConvertCompress.getClass)
+//  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[HdfsConvertCompress]))
   val HDFSPORTDOTSUFFIX=PropertiesUtils.configFileByKeyGetValueFrom("HDFSPORTDOTSUFFIX")
 
 
