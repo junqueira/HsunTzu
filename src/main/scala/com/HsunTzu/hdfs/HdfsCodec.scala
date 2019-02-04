@@ -1,10 +1,12 @@
 package com.HsunTzu.hdfs
 
 
-import com.HsunTzu.hdfs.HdfsCodec.{bZip2Code,lz4Code,snappyCode,gzipCode, defaultCode, deflateCode}
-import com.typesafe.scalalogging.Logger
+import com.HsunTzu.core.HdfsUntar
+import com.HsunTzu.hdfs.HdfsCodec.{bZip2Code, defaultCode, deflateCode, gzipCode, lz4Code, snappyCode}
+//import com.typesafe.scalalogging.Logger
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.io.compress._
+import org.apache.log4j.Logger
 import org.slf4j.LoggerFactory
 
 class HdfsCodec {
@@ -13,7 +15,8 @@ class HdfsCodec {
 
 object HdfsCodec{
 
-  private [this] val logger =Logger(LoggerFactory.getLogger(classOf[HdfsCodec]))
+  val logger: Logger = Logger.getLogger(HdfsCodec.getClass)
+//  private [this] val logger =Logger(LoggerFactory.getLogger(classOf[HdfsCodec]))
 
   val deflateCode:String="DEFLATE"
   val snappyCode:String="SNAPPY"

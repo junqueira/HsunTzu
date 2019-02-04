@@ -3,12 +3,13 @@ package com.HsunTzu.core
 import java.io.BufferedInputStream
 
 import com.HsunTzu.utils.CommonUtils
-import com.typesafe.scalalogging.Logger
+//import com.typesafe.scalalogging.Logger
 import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FSDataInputStream, FSDataOutputStream, FileSystem, Path}
 import org.apache.hadoop.io.IOUtils
 import org.apache.hadoop.io.compress._
+import org.apache.log4j.Logger
 import org.slf4j.LoggerFactory
 
 class HdfsTar {
@@ -17,7 +18,8 @@ class HdfsTar {
 
 object  HdfsTar{
 
-  private[this] val logger =Logger(LoggerFactory.getLogger(classOf[HdfsTar]))
+  val logger: Logger = Logger.getLogger(HdfsTar.getClass)
+//  private[this] val logger =Logger(LoggerFactory.getLogger(classOf[HdfsTar]))
   /***
     * 对 hdfs  原始文件目录  进行 tar ball  压缩 默认 使用gzip
     * @param fs  hdfs 文件系统上下文

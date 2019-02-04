@@ -3,9 +3,10 @@ package com.HsunTzu.utils
 import java.io.InputStream
 import java.util.zip.{GZIPInputStream, ZipInputStream}
 
-import com.typesafe.scalalogging.Logger
+//import com.typesafe.scalalogging.Logger
 import org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream
 import org.apache.hadoop.fs.{FSDataInputStream, Path, FileSystem => HDFSFileSystem}
+import org.apache.log4j.Logger
 import org.apache.tools.tar.TarInputStream
 import org.slf4j.LoggerFactory
 
@@ -15,7 +16,8 @@ class FileUtils {
 
 object  FileUtils{
 
-  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[FileUtils]))
+  val logger: Logger = Logger.getLogger(FileUtils.getClass)
+//  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[FileUtils]))
 
   /** *
     * 根据 tar包 后缀 选择解压数据io 流对象

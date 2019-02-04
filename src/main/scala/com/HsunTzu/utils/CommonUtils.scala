@@ -1,6 +1,7 @@
 package com.HsunTzu.utils
 
-import com.typesafe.scalalogging.Logger
+//import com.typesafe.scalalogging.Logger
+import org.apache.log4j.Logger
 import org.slf4j.LoggerFactory
 
 import scala.collection.mutable.ArrayBuffer
@@ -11,7 +12,8 @@ class CommonUtils {
 }
 object  CommonUtils{
 
-  private[this] val logger =Logger(LoggerFactory.getLogger(classOf[CommonUtils]))
+  val logger: Logger = Logger.getLogger(CommonUtils.getClass)
+//  private[this] val logger =Logger(LoggerFactory.getLogger(classOf[CommonUtils]))
 
   /**
     * 获取文件名称 通过路径

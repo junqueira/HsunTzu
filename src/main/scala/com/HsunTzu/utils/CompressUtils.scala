@@ -4,7 +4,9 @@ import java.io.{File, FileInputStream, InputStream}
 import java.util.Properties
 import java.util.zip.{GZIPInputStream, ZipEntry, ZipInputStream}
 
-import com.typesafe.scalalogging.Logger
+import org.apache.log4j.Logger
+
+//import com.typesafe.scalalogging.Logger
 import org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream
 import org.apache.hadoop.fs.{FSDataInputStream, FSDataOutputStream, Path, FileSystem => HDFSFileSystem}
 import org.apache.hadoop.io.IOUtils
@@ -21,8 +23,8 @@ class CompressUtils {
 
 object  CompressUtils{
 
-
-  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[CompressUtils]))
+  val logger: Logger = Logger.getLogger(CompressUtils.getClass)
+//  private [this] val logger=Logger(LoggerFactory.getLogger(classOf[CompressUtils]))
   /** *
     * 根据 tar包 后缀 选择解压数据io 流对象
     *

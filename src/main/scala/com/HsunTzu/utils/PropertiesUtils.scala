@@ -3,7 +3,8 @@ package com.HsunTzu.utils
 import java.io.{File, FileInputStream, InputStream}
 import java.util.Properties
 
-import com.typesafe.scalalogging.Logger
+//import com.typesafe.scalalogging.Logger
+import org.apache.log4j.Logger
 import org.slf4j.LoggerFactory
 
 import scala.collection.mutable
@@ -16,7 +17,8 @@ class PropertiesUtils {
 object PropertiesUtils{
 
 
-  private [this]val logger= Logger(LoggerFactory.getLogger(classOf[PropertiesUtils]))
+  val logger: Logger = Logger.getLogger(PropertiesUtils.getClass)
+//  private [this]val logger= Logger(LoggerFactory.getLogger(classOf[PropertiesUtils]))
 
   val configPath="./config.properties"
 
